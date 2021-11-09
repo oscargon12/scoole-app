@@ -1,20 +1,23 @@
 import './navBar.css'
+import { Navbar, Container, Nav } from 'react-bootstrap'
+import CartWidget from '../cartWidget/CartWidget'
+const NavBar = ( props ) => {
 
-const NavBar = () => {
+    const {brand, link1, link2, link3 } = props
 
     return (
-        <header>
-        <div className="logo">
-          <h1>Scoole</h1>           
-        </div>
-        <nav> 
-          <ul>
-            <li><a href="https://www.google.com.co/" target="_blank" rel="noreferrer">Productos</a></li>
-            <li><a href="https://es.reactjs.org/" target="_blank" rel="noreferrer">Accesorios</a></li>
-            <li><a href="https://react-bootstrap.github.io/" target="_blank" rel="noreferrer">Más info</a></li>  
-          </ul>
-        </nav>
-      </header>
+    
+    <Navbar bg="light" variant="light">
+      <Container className="d-block d-sm-flex">
+      <Navbar.Brand href="#home" className="fw-bold d-flex justify-content-center">{brand}</Navbar.Brand>
+      <Nav className="ms-auto d-flex justify-content-center">
+        <Nav.Link href="#products">{link1}</Nav.Link>
+        <Nav.Link href="#accessories">{link2}</Nav.Link>
+        <Nav.Link href="#info">{link3}</Nav.Link>
+        <CartWidget/>
+      </Nav>
+      </Container>
+    </Navbar>
     )
 }
 
