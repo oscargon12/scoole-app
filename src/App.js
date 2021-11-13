@@ -9,8 +9,7 @@ function App() {
     <div className="App">
 
       <NavBar brand="Scoole" link1="Productos" link2="Accesorios" link3="Más info"/> {/* Siempre debo cerrar estos tags */}
-      <ItemListContainer greeting="Electric Skateboards" content="Los mejores productos en transporte alternativo"/>
-      {/* 🔸 Enviando las props */}
+      <ItemListContainer greeting="Micro mobility" content="Los mejores productos en transporte alternativo"/> {/* 🔸 Enviando las props */}
     </div>
   );
 }
