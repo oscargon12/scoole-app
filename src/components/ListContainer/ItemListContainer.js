@@ -1,15 +1,52 @@
-import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-import ProductCard from '../ProductCard/ProductCard'
-import prod1 from '../assets/img/products/boosted-mini-x_1_2000x.png'
+/* eslint-disable no-undef */
+import React, {useState, useEffect} from 'react'
+import { Container, Row } from 'react-bootstrap'
+import { getData } from '../../helpers/getData'
+import ItemList from '../ItemList/ItemList'
 
+// useState: Variables de estado para nuestro componente 
+// useEffect: Controla tiempos y ritmo de ejecución que queremos para el componente
+    
 const ItemListContainer = (props) => {
 
     console.log(props)
     console.log(props.greeting)
 
-    const {greeting, content} = props
-    //🔸 Desestructurando
+    const {greeting, content} = props //🔸 Desestructurando
+
+    const [loading, setLoading] = useState(false)
+    const [products, setProducts] = useState([])
+
+    // Funcion que retorna una promesa
+    // const pedirDatos = (valor) => {
+    //     return new Promise((resolve, reject) => {
+
+    //         setTimeout(() => {
+    //             resolve(stock)
+    //             /* if(valor === true){
+    //                 resolve('Promesa resuelta') //imprime 'Promesa resuelta'
+    //             } else {
+    //                 resolve('Promesa rechazada') //imprime 'Promesa rechazada'
+    //             } */
+    //         }, 2000)
+    //     })
+    // }
+
+    useEffect(() => {
+
+        setLoading(true)
+        getData()
+            .then( (resp) => {
+                setProducts(resp)
+            })
+            .catch( (error) => {
+                console.log(error)
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+
+    }, []) //El [] significa que el useEffect, se aplica solo en el montaje
 
     return (
         
@@ -19,9 +56,11 @@ const ItemListContainer = (props) => {
                 <p className="text-center">{content}</p>
             </Row>
             <Row>
-                <Col xs={12} md={4} className="mx-auto">
-                    <ProductCard img={prod1} name="Boosted Mini" stock="5"/> {/* 🔹Este es el stock de la tarjeta */}
-                </Col>
+            {
+                loading 
+                    ? <h2>Cargando...</h2> 
+                    : <ItemList items={products}/>
+            }
             </Row>
         </Container>
     )

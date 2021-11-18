@@ -15,3 +15,14 @@ function App() {
 }
 
 export default App;
+
+
+// == HILO SUPERIOR ==
+// ItemListContainer  = presentacion (Contiene el catalogo de productos)
+//  ItemList          = mapea el stock (que viene de una api)
+//    item            = Recibe todos los props desde el ItemList
+
+// == HILO INFERIOR ==
+// ItemDetailContainer
+//  ItemDetail
+//    ItemCount
