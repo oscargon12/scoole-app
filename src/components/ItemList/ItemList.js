@@ -1,6 +1,7 @@
 import React from 'react' //Se importan los hooks
-import { Container, Row, Col, Alert } from 'react-bootstrap'
+import { Container, Alert } from 'react-bootstrap'
 import Item from '../Item/Item'
+import './itemList.css'
 
 const ItemList = ({items}) => {
     
@@ -34,11 +35,9 @@ const ItemList = ({items}) => {
             }
             <Container>
                 <h2 className="text-center">Conoce nuestros productos</h2>
-                <Row>
-                    <Col xs={12} className="mx-auto d-flex justify-content-between">
+                <div className="product-grid">
                     {items.map((prod) => <Item key={prod.id} {...prod}/>)} {/* 🔹Este es el stock de la tarjeta */}
-                    </Col>
-                </Row>
+                </div>
             </Container>
         </div>
     )

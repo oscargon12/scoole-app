@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 import React, {useState, useEffect} from 'react'
 import { Container, Row } from 'react-bootstrap'
+import { useParams } from 'react-router'
 import { getData } from '../../helpers/getData'
 import ItemList from '../ItemList/ItemList'
 
@@ -9,13 +10,14 @@ import ItemList from '../ItemList/ItemList'
     
 const ItemListContainer = (props) => {
 
-    console.log(props)
-    console.log(props.greeting)
+    //console.log(props)
+    //console.log(props.greeting)
 
     const {greeting, content} = props //🔸 Desestructurando
 
     const [loading, setLoading] = useState(false)
     const [products, setProducts] = useState([])
+    const { catId } = useParams()
 
     // Funcion que retorna una promesa
     // const pedirDatos = (valor) => {
@@ -32,12 +34,20 @@ const ItemListContainer = (props) => {
     //     })
     // }
 
+    const params = useParams()
+    console.log(params)
+
     useEffect(() => {
 
         setLoading(true)
         getData()
             .then( (resp) => {
-                setProducts(resp)
+
+                if (!catId){ //Condicionando la respuesta con el catId (filtrar)
+                    setProducts(resp)
+                } else {
+                    setProducts(resp.filter(prod => prod.category === catId)) //Filtro
+                }
             })
             .catch( (error) => {
                 console.log(error)
@@ -46,8 +56,8 @@ const ItemListContainer = (props) => {
                 setLoading(false)
             })
 
-    }, []) //El [] significa que el useEffect, se aplica solo en el montaje
-
+    }, [catId]) //El [] significa que el useEffect, se aplica solo en el montaje
+        //El catId es el que permite cambiar de componente, cuando cambie la URL
     return (
         
         <Container>
