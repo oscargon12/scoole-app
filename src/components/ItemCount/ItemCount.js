@@ -36,7 +36,7 @@ function ItemCount({stock}) { //🔸 Este stock es el que valida desde productCa
             </div>
 
             <div>
-                <Button variant="outline-primary" className="w-100 mt-3" onClick={response}>
+                <Button variant="info" className="w-100 mt-3 text-white" onClick={response}>
                     Agregar al carrito
                 </Button>
             </div>

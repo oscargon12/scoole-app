@@ -8,7 +8,7 @@ import ItemList from '../ItemList/ItemList'
 // useState: Variables de estado para nuestro componente 
 // useEffect: Controla tiempos y ritmo de ejecución que queremos para el componente
     
-const ItemListContainer = (props) => {
+export const ItemListContainer = (props) => {
 
     //console.log(props)
     //console.log(props.greeting)
@@ -75,5 +75,3 @@ const ItemListContainer = (props) => {
         </Container>
     )
 }
-
-export default ItemListContainer

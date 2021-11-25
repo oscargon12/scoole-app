@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 const ProductCard = ( props ) => {
 
     const {id, name, img, stock, price, category } = props // 🔹Este es el stock de la tarjeta
+
     return (
         <Card className="m-2">
             <Card.Img variant="top" src={img} />

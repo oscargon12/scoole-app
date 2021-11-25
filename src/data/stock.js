@@ -39,4 +39,28 @@ export const stock = [
         price: '$ 1.300',
         category: 'longboard'
     },
+    {
+        id: 6,
+        name: 'DK sprinter cruiser',
+        img: 'https://cdn.shopify.com/s/files/1/0200/1122/1092/products/c3aaf478-d9fe-474a-9b41-521a28f6f349_720x.jpg?v=1637699326',
+        stock: '6',
+        price: '$ 800',
+        category: 'bike'
+    },
+    {
+        id: 7,
+        name: 'Mi Qicycle',
+        img: 'https://www.electribike.com.co/wp-content/uploads/2020/04/mi-qicycle.jpg',
+        stock: '6',
+        price: '$ 700',
+        category: 'bike'
+    },
+    {
+        id: 8,
+        name: 'Mi Gotrax XR Elite',
+        img: 'https://m.media-amazon.com/images/I/616+8gdEEaL._AC_SL1500_.jpg',
+        stock: '6',
+        price: '$ 1.100',
+        category: 'scooter'
+    },
 ]
