@@ -35,7 +35,7 @@ export const stock = [
         id: 5,
         name: 'Boosted Mini S',
         img: 'https://cdn.shopify.com/s/files/1/0268/1454/6031/products/boosted-mini-1-1_2000x.png?v=1587690465',
-        stock: '6',
+        stock: '9',
         price: '$ 1.300',
         category: 'longboard'
     },
@@ -51,7 +51,7 @@ export const stock = [
         id: 7,
         name: 'Mi Qicycle',
         img: 'https://www.electribike.com.co/wp-content/uploads/2020/04/mi-qicycle.jpg',
-        stock: '6',
+        stock: '7',
         price: '$ 700',
         category: 'bike'
     },
@@ -59,7 +59,7 @@ export const stock = [
         id: 8,
         name: 'Mi Gotrax XR Elite',
         img: 'https://m.media-amazon.com/images/I/616+8gdEEaL._AC_SL1500_.jpg',
-        stock: '6',
+        stock: '8',
         price: '$ 1.100',
         category: 'scooter'
     },

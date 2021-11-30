@@ -1,11 +1,15 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Card, Button, Row, Col, Image } from 'react-bootstrap'
 import ItemCount from '../ItemCount/ItemCount'
 import { useNavigate } from 'react-router'
+import { Link } from 'react-router-dom'
 
 export const ItemDetail = (props) => {
 
-    const { name, img, stock, price, category } = props
+    const { id, name, img, stock, price, category } = props
+
+    const [cantidad, setCantidad] = useState(0) //Cantidad en el carrito
+    const [agregado, setAgregado] = useState(false) //Si ya está agregado en el carrito
 
     const navigate = useNavigate()
     const handleBack = () => {
@@ -14,6 +18,14 @@ export const ItemDetail = (props) => {
 
     const handleToIndex = () => {
         navigate('/') // Historial ruta específica
+    }
+
+    const handleAddToCart = () => {
+
+        console.log('Item agregado: ', {
+            id, name, price
+        })
+        setAgregado(true) //Esto controla el cambio de estado para el botón de terminar compar
     }
 
     return (
@@ -43,7 +55,18 @@ export const ItemDetail = (props) => {
                         </div>
                         <Row className="mt-4">
                         <Col xs={6}>
-                                <ItemCount stock="5"/>
+
+                            {
+                                !agregado
+                                    ? <ItemCount 
+                                    max={stock}
+                                    cantidad={cantidad}
+                                    setCantidad={setCantidad}  /* 🔹Consumiendo el max desde itemCount. Los valores de cantidad también */
+                                    onAdd={handleAddToCart} /* 🟢 Se envía a ItemCount */
+                                    />
+                                : <Link to="/cart" variant="primary" className="btn btn-success">Terminar compra</Link>
+                            }
+                                
                         </Col> 
                         </Row>
                     </Col>
