@@ -1,15 +1,20 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import { Card, Button, Row, Col, Image } from 'react-bootstrap'
 import ItemCount from '../ItemCount/ItemCount'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
-
+import { CartContext } from '../../context/CartContext'
+ 
 export const ItemDetail = (props) => {
 
     const { id, name, img, stock, price, category } = props
 
-    const [cantidad, setCantidad] = useState(0) //Cantidad en el carrito
-    const [agregado, setAgregado] = useState(false) //Si ya está agregado en el carrito
+    const context = useContext(CartContext)
+    console.log(context)
+    const { agregarAlCarrito, isInCart } = useContext(CartContext)
+
+    const [cantidad, setCantidad] = useState(1) //Cantidad en el carrito
+    //const [agregado, setAgregado] = useState(false) //Si ya está agregado en el carrito
 
     const navigate = useNavigate()
     const handleBack = () => {
@@ -21,11 +26,13 @@ export const ItemDetail = (props) => {
     }
 
     const handleAddToCart = () => {
+        if (cantidad > 0) {
 
-        console.log('Item agregado: ', {
-            id, name, price
-        })
-        setAgregado(true) //Esto controla el cambio de estado para el botón de terminar compar
+            agregarAlCarrito({
+                id, name, price, img, cantidad
+            })
+            //setAgregado(true) //Esto controla el cambio de estado para el botón de terminar compar
+        }
     }
 
     return (
@@ -57,7 +64,7 @@ export const ItemDetail = (props) => {
                         <Col xs={6}>
 
                             {
-                                !agregado
+                                !isInCart(id) //Devuelve true o false segun, si el producto se encuentra en el carrito
                                     ? <ItemCount 
                                     max={stock}
                                     cantidad={cantidad}

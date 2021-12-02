@@ -1,6 +1,6 @@
 import './navBar.css'
 import { Navbar, Container, Nav } from 'react-bootstrap'
-import CartWidget from '../cartWidget/CartWidget'
+import { CartWidget } from '../cartWidget/CartWidget'
 import { Link } from 'react-router-dom'
 import { BsBicycle } from 'react-icons/bs'
 
@@ -17,8 +17,9 @@ const NavBar = ( props ) => {
         <Nav.Link> <Link to="productos/bike">{link1}</Link></Nav.Link>
         <Nav.Link> <Link to="productos/scooter">{link2}</Link></Nav.Link>
         <Nav.Link> <Link to="productos/longboard">{link3}</Link></Nav.Link>
-        <CartWidget/>
       </Nav>
+
+      <Link to="cart"> <CartWidget/> </Link>
       </Container>
     </Navbar>
     )

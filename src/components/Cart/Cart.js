@@ -1,25 +1,22 @@
-import React from 'react'
-import { Card, Button, Row, Col, Image } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { BsFillTrashFill } from 'react-icons/bs'
+import { CartContext } from '../../context/CartContext'
 
+export const Cart = ({name, price, cantidad, id}) => {
 
-export const Cart = () => {
+    const {removerDelCarrito} = useContext(CartContext)
+
     return (
-        <main className="container">
-            <Row className="mt-5">
-                <Col>
-                    <Card>
-                    <Card.Header>Carrito de compras</Card.Header>
-                    <Card.Body>
-                        <Card.Title>Agregando productos</Card.Title>
-                        <Card.Text>
-                        Próximamente...
-                        </Card.Text>
-                        <Link to="/" variant="primary" className="btn btn-primary">Go somewhere</Link>
-                    </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
-        </main>
+        <div>
+            <h3>{name}</h3>
+            <p>Precio: ${price}</p>
+            <p>Cantidad: {cantidad}</p>
+            <button 
+                className="btn btn-danger"
+                onClick={() => { removerDelCarrito(id) }}
+            >
+                <BsFillTrashFill/>
+            </button>
+        </div>
     )
 }

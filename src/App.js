@@ -4,18 +4,23 @@ import NavBar from './components/layout/navBar/NavBar' //🔸Importando por defa
 // import { NavBar } from './components/layout/navBar/NavBar' // Importando SIN default
 import { BrowserRouter } from 'react-router-dom';
 import { AppRouter } from './router/AppRouter';
-//import { Team } from './components/Team/Team'
+import { CartProvider } from './context/CartContext';
+
 
 function App() {
 
   return (
 
-    <BrowserRouter> {/* Este engloba a toda la App */}
+      <CartProvider> {/* 🔸Esto viene de la exportación del CartContext */}
 
-      <NavBar brand="Scoole" link1="Bicicletas" link2="Scooters" link3="Longboard"/> {/* Los componentes comunes van por fuera del <Routes></Routes> */}
-      <AppRouter/>
+        <BrowserRouter> {/* Este engloba a toda la App */}
 
-    </BrowserRouter>
+          <NavBar brand="Scoole" link1="Bicicletas" link2="Scooters" link3="Longboard"/> {/* Los componentes comunes van por fuera del <Routes></Routes> */}
+          <AppRouter/>
+
+        </BrowserRouter>
+
+      </CartProvider>
   );
 }
 
