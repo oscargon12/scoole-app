@@ -13,7 +13,10 @@ export const ItemDetail = (props) => {
     console.log(context)
     const { agregarAlCarrito, isInCart } = useContext(CartContext)
 
-    const [cantidad, setCantidad] = useState(1) //Cantidad en el carrito
+    const [cantidad, setCantidad] = useState(0) //Cantidad en el carrito
+    // [🔹cantidad:variable iterable, 🔸setCantidad: funcion que modifica ese estado
+    //Esa función es usada en ItemCount por medio de context
+
     //const [agregado, setAgregado] = useState(false) //Si ya está agregado en el carrito
 
     const navigate = useNavigate()
@@ -65,7 +68,7 @@ export const ItemDetail = (props) => {
 
                             {
                                 !isInCart(id) //Devuelve true o false segun, si el producto se encuentra en el carrito
-                                    ? <ItemCount 
+                                    ? <ItemCount  //Mejor llamar un componente externo que intertar todo el código de este (mover lógica completa a componentes de menor orden)
                                     max={stock}
                                     cantidad={cantidad}
                                     setCantidad={setCantidad}  /* 🔹Consumiendo el max desde itemCount. Los valores de cantidad también */

@@ -1,23 +1,20 @@
-import React, { useState } from 'react' //Siempre importar el hook de useState
+import React from 'react' //Siempre importar el hook de useState
 import { Button } from 'react-bootstrap'
 
-function ItemCount({ max, cantidad, setCantidad, onAdd }) { //🔸 Este max={stock} es una prop de itemDetail
+function ItemCount({ max, setCantidad, cantidad, onAdd }) { //🔸 Este max={stock} es una prop de itemDetail
                                             //🟢 onAdd viene del ItemDetail
-
-    const [counter, setCounter] = useState(1); //useState(1) es el estado inicial del counter
-    // [🔹counter:variable iterable, 🔸setCounter: funcion que modifica ese estado
 
     //El estado está en el componente padre, pero los handlers estan en el componente hijo
     const handleAddItem = () => {
-        max > counter
-            ? setCounter(counter + 1) //A cada onClick suma uno
+        max > cantidad
+            ? setCantidad(cantidad + 1) //A cada onClick suma uno
             //🔸setCounter 🔹counter
             : alert('No hay más unidades disponibles')
     }
     
     const handleRemoveItem = () => {
-        counter > 1
-           ? setCounter(counter - 1)
+        cantidad > 1
+           ? setCantidad(cantidad - 1)
            : alert('No se puede disminuir más')
     }
 
@@ -26,16 +23,31 @@ function ItemCount({ max, cantidad, setCantidad, onAdd }) { //🔸 Este max={sto
         alert(`Agregaste ${counter} productos` )
     } */
 
+    //Puedo enviar los atributos al elemento boton así 🔹
+    const handleAddConfig = {
+        className: `btn-block ${cantidad === max ? 'btn-danger' : 'btn-primary'}`, //las clases en comun se ponen en un template string
+        onClick: handleAddItem, //Acción del boton
+        disabled: cantidad === max //Disabled si...
+    }
+
     return (
         <div>
             <div className="d-flex justify-content-between">
-                <Button variant="secondary" onClick={handleRemoveItem}>-</Button> {/* Handler para sumar */}
-                <h3>{counter}</h3>       
-                <Button variant="primary" onClick={handleAddItem}>+</Button>
+                <Button
+                 onClick={handleRemoveItem}
+                 className={ `btn-block ${cantidad === 0 ? 'btn-secondary' : 'btn-info'}` } //👈🏻 Optionanl styling, acompaña al control handleAddItem del ItemCount
+                 disabled={cantidad === 0}
+                 >
+                     -
+                </Button> {/* Handler para sumar */}
+                <h3>{cantidad}</h3>       
+                <Button  {...handleAddConfig}>  {/* 🔹Recibiendo el objeto handleAddConfig */}
+                     +
+                 </Button>
             </div>
 
             <div>
-                <Button variant="info" className="w-100 mt-3 text-white" onClick={onAdd}>
+                <Button variant="primary" className="w-100 mt-3 text-white" onClick={onAdd}>
                     Agregar al carrito
                 </Button>
             </div>

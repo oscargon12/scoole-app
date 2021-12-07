@@ -2,10 +2,11 @@ import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
 import { CartItem } from './CartItem'
+import { BsFillCartXFill } from 'react-icons/bs'
 
 export const CartView = () => {
 
-    const {carrito, vaciarCarrito} = useContext(CartContext)
+    const {carrito, vaciarCarrito, totalCompra, } = useContext(CartContext)
 
     return (
         <div className="container my-5">
@@ -16,10 +17,13 @@ export const CartView = () => {
                         <hr/>
                         <section>
                             {
-                                carrito.map((prod) => <CartItem {...prod}/>)
+                                carrito.map((prod) => <CartItem key={prod.id} {...prod}/>)
                             }
                         </section>
                         <hr/>
+                        <div className="d-flex justify-content-end mb-5">
+                            <h4> Total: ${totalCompra()} </h4>
+                        </div>
                         <div>
                             <button className="btn btn-danger" onClick={vaciarCarrito}>Vaciar carrito</button>
                             <button className="btn btn-success mx-2">Terminar mi compra</button>
@@ -27,9 +31,14 @@ export const CartView = () => {
                     </>
 
                 :   <>
-                        <h2>No agregaste items al carrito aún</h2>
+                        <div className="text-muted d-flex justify-content-center">
+                            <BsFillCartXFill size={50}/>
+                        </div>
+                        <h4 className="text-center text-muted mt-3">No has agregado productos al carrito</h4>
                         <hr/>
-                        <Link to="/" className="btn btn-primary">Volver</Link>
+                        <div className="d-flex justify-content-center">
+                            <Link to="/" className="btn btn-primary">Volver</Link>
+                        </div>
                     </>
             }
         </div>

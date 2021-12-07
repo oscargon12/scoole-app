@@ -4,6 +4,7 @@ import { Container, Row } from 'react-bootstrap'
 import { useParams } from 'react-router'
 import { getData } from '../../helpers/getData'
 import ItemList from '../ItemList/ItemList'
+import { Spinner } from 'react-bootstrap'
 
 // useState: Variables de estado para nuestro componente 
 // useEffect: Controla tiempos y ritmo de ejecución que queremos para el componente
@@ -68,7 +69,11 @@ export const ItemListContainer = (props) => {
             <Row>
             {
                 loading 
-                    ? <h2>Cargando...</h2> 
+                    ? <div className="d-flex justify-content-center mt-5">
+                        <Spinner animation="border" role="status" variant="primary">
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                      </div>
                     : <ItemList items={products}/>
             }
             </Row>

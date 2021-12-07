@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
 import { getData } from '../../helpers/getData'
 import { ItemDetail } from '../ItemDetail/ItemDetail'
+import { Spinner } from 'react-bootstrap'
 
 
 export const ItemDetailContainer = () => {
@@ -28,7 +29,12 @@ export const ItemDetailContainer = () => {
         <div className="container">
             {
                 loading /* Si loading es true, muestre cargando */
-                  ? <h2>Cargando...</h2>
+                  ? <div className="d-flex justify-content-center mt-5">
+                        <Spinner animation="border" role="status" variant="primary">
+                            <span className="visually-hidden">Loading...</span>
+                        </Spinner>
+                    </div>
+                  
                   : <ItemDetail {...item}/>
             }
         </div>
