@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router'
-import { getData } from '../../helpers/getData'
+//import { getData } from '../../helpers/getData'
 import { ItemDetail } from '../ItemDetail/ItemDetail'
 import { Spinner } from 'react-bootstrap'
+import { doc, getDoc, collection } from 'firebase/firestore/lite'
+import { db } from '../../firebase/config'
 
 
 export const ItemDetailContainer = () => {
@@ -15,13 +17,27 @@ export const ItemDetailContainer = () => {
     useEffect(() => {
         setLoading(true)
 
-        getData()
+        const productRef = collection(db, 'productos')
+        const docRef = doc(productRef, itemId)
+        getDoc(docRef)
+            .then((doc) => {
+                setItem({ //Se hace un setItem del objeto
+                    id: doc.id,
+                    ...doc.data()
+                })
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+
+
+        /* getData()
             .then( resp => {
                 setItem( resp.find( prod => prod.id === Number(itemId)) )
             })
             .finally(() => {
                 setLoading(false)
-            })
+            }) */
 
     }, [itemId])
 
