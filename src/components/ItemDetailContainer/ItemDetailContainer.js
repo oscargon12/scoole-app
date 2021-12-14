@@ -17,7 +17,7 @@ export const ItemDetailContainer = () => {
     useEffect(() => {
         setLoading(true)
 
-        const productRef = collection(db, 'productos')
+        const productRef = collection(db, 'productos') //Se arma la referencia para usarla en docRef
         const docRef = doc(productRef, itemId)
         getDoc(docRef)
             .then((doc) => {
