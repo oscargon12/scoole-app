@@ -1,4 +1,3 @@
-import './navBar.css'
 import { Navbar, Container, Nav } from 'react-bootstrap'
 import { CartWidget } from '../cartWidget/CartWidget'
 import { Link } from 'react-router-dom'
@@ -10,9 +9,9 @@ const NavBar = ( props ) => {
 
     return (
     
-    <Navbar bg="light" variant="light">
+    <Navbar bg="dark" variant="dark">
       <Container className="d-block d-sm-flex">
-        <Navbar.Brand href="#home" className="fw-bold d-flex justify-content-center"><Link to="/"><BsBicycle/> {brand}</Link></Navbar.Brand>
+        <Navbar.Brand href="#home" className="fw-bold text-light d-flex justify-content-center"><Link to="/"><BsBicycle/> {brand}</Link></Navbar.Brand>
         <Nav className="ms-auto d-flex justify-content-center">
           <Nav.Link> <Link to="productos/bike">{link1}</Link></Nav.Link>
           <Nav.Link> <Link to="productos/scooter">{link2}</Link></Nav.Link>

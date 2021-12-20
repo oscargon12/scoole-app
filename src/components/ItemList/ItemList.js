@@ -1,7 +1,7 @@
 import React from 'react' //Se importan los hooks
 import { Container, Alert } from 'react-bootstrap'
 import Item from '../Item/Item'
-import './itemList.css'
+import '../scss/main.scss'
 
 const ItemList = ({items}) => {
     
