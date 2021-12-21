@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+.bas-font{
+    font-family: 'Bebas Neue', cursive;
+}
+
+.text-white{
+    color: white !important;
+
+    svg{
+        color: white !important;
+    }
+
+    &:hover{
+        color: #F44336;
+    }
+}
+
+.dec-none{
+    text-decoration: none;
+}

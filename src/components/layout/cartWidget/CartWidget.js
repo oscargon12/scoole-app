@@ -9,7 +9,7 @@ export const CartWidget = () => {
 
     const { totalCantidad, carrito } = useContext(CartContext)
     return (
-        <div className={ `mt-1 ml-3 ${ carrito.length === 0 ? 'hidden widget' : 'widget' }`}>
+        <div className={ `mt-0 ml-5  text-white ${ carrito.length === 0 ? 'hidden widget' : 'widget' }`}>
             <Link to="cart">
                 <BsCartFill/> {/* <Badge bg="danger" className="rounded-circle">2</Badge> */}
             </Link>
