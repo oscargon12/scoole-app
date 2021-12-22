@@ -31,10 +31,9 @@ const ItemList = ({items}) => {
             </Alert>
                 : /* Opcion falsa */
                 'Obteniendo info del servidor'
-
             }
             <Container>
-                <h2 className="text-center">Conoce nuestros productos</h2>
+                <h2 className="text-center bas-font gray75">Conoce nuestros productos</h2>
                 <div className="product-grid">
                     {items.map((prod) => <Item key={prod.id} {...prod}/>)} {/* 🔹Este es el stock de la tarjeta */}
                 </div>

@@ -4,6 +4,11 @@
     font-family: 'Bebas Neue', cursive;
 }
 
+/* Text */
+.text-14{
+    font-size: 14px;
+}
+
 .text-white{
     color: white !important;
 
@@ -18,4 +23,21 @@
 
 .dec-none{
     text-decoration: none;
+}
+
+/* Text color */
+.color-primary{
+    color: $primary ; 
+}
+
+.gray42{
+    color: $gray42;
+}
+
+.gray75{
+    color: $gray75
+}
+
+.gray9e{
+    color: $gray9e
 }

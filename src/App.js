@@ -15,7 +15,7 @@ function App() {
 
         <BrowserRouter> {/* Este engloba a toda la App */}
 
-          <NavBar brand="Scoole" link1="Bicicletas" link2="Scooters" link3="Longboard"/> {/* Los componentes comunes van por fuera del <Routes></Routes> */}
+          <NavBar brand="Scoole" link0="Todos" link1="Bicicletas" link2="Scooters" link3="Longboard"/> {/* Los componentes comunes van por fuera del <Routes></Routes> */}
           <AppRouter/>
 
         </BrowserRouter>

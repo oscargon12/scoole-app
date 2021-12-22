@@ -10,6 +10,7 @@ export const AppRouter = () => {
 
     const routes = useRoutes([
         { path: "/", element: <Home/>},
+        { path: "/productos", element: <ItemListContainer/> },
         { path: "/productos/:catId", element: <ItemListContainer/> },
         { path: "/detail/:itemId", element: <ItemDetailContainer/>},
         { path: "/cart", element: <CartView/>},
