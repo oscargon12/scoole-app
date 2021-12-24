@@ -1,43 +1,49 @@
 import React from 'react'
 import { Carousel, Container } from 'react-bootstrap'
+import { Footer } from '../Footer/Footer'
 import { Link } from 'react-router-dom'
-
 
 export const Home = () => {
     return (
         <div>
-          <Carousel>
-            <Carousel.Item >
+          <Carousel className='carousel-height'>
+            <Carousel.Item className='carousel-height'>
               <img
                 className="d-block w-100"
-                src="https://firebasestorage.googleapis.com/v0/b/clase-firebase-1d1eb.appspot.com/o/home_1.jpg?alt=media&token=806d7b5a-2892-4498-a050-4e1358daac2f"
+                src="https://firebasestorage.googleapis.com/v0/b/clase-firebase-1d1eb.appspot.com/o/home_1.jpg?alt=media&token=21ed50f9-4ac0-407f-b0c1-a9e52e2077f1"
                 alt="First slide"
               />
               <Carousel.Caption>
-                <h3>Longboards electricas</h3>
-                <p>Nuevas opciones</p>
+                <h2 className='bas-font'>Longboards electricas</h2>
+                <div className='carousel-label'>
+                  <p>Nuevas opciones</p>
+                </div>
               </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item >
+            <Carousel.Item className='carousel-height'>
               <img
                 className="d-block w-100"
-                src="https://firebasestorage.googleapis.com/v0/b/clase-firebase-1d1eb.appspot.com/o/home_2.jpg?alt=media&token=9aeefcc4-8532-40c4-8e82-502247b34ee3"
+                src="https://firebasestorage.googleapis.com/v0/b/clase-firebase-1d1eb.appspot.com/o/home_2.jpg?alt=media&token=175a2a2d-8b94-447d-95b4-cb862a65b84f"
                 alt="Second slide"
               />
               <Carousel.Caption>
-                <h3>Bicicletas</h3>
-                <p>Quema grasa, no combustible</p>
+                <h2 className='bas-font'>Bicicletas</h2>
+                <div className='carousel-label'>
+                  <p>Quema grasa, no combustible</p>
+                </div>
               </Carousel.Caption>
             </Carousel.Item>
-            <Carousel.Item >
+            <Carousel.Item className='carousel-height'>
               <img
                 className="d-block w-100"
                 src="https://firebasestorage.googleapis.com/v0/b/clase-firebase-1d1eb.appspot.com/o/home_3.jpg?alt=media&token=dd7e705b-7952-4fb8-b5c6-8383f3483f2a"
                 alt="Third slide"
               />
               <Carousel.Caption>
-                <h3>Scooters</h3>
-                <p>Escapa del tráfico</p>
+                <h2 className='bas-font'>Scooters</h2>
+                <div className='carousel-label'>
+                  <p>Escapa del tráfico</p>
+                </div>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
@@ -75,7 +81,24 @@ export const Home = () => {
             </div>
           </Container>
 
+          <section className='container-fluid bg-light mt-5'>
+            <div className="row featurette">
+              <div className="col-md-7 order-md-2 my-auto">
+                <h2 className="featurette-heading bas-font">Oh yeah, it’s that good. <span className="text-muted">See for yourself.</span></h2>
+                <p className="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+              </div>
+              <div className="col-md-5 order-md-1 px-0">
+              <img
+                    className='w-100'
+                    src="https://images.unsplash.com/photo-1579017919837-61418cbef18e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODd8fGJpY3ljbGV8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                    alt="longboard button"
+                  />
 
+              </div>
+            </div>
+          </section>
+
+          <Footer/>
         </div>
     )
 }
