@@ -14,8 +14,6 @@ import { db } from '../../firebase/config'
     
 export const ItemListContainer = (props) => {
 
-    //console.log(props)
-    //console.log(props.greeting)
 
     const {greeting, content} = props //🔸 Desestructurando
 

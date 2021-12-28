@@ -25,7 +25,8 @@ const ItemList = ({items}) => {
     
     return (
         <div>
-            {items ? /* Opcion verdadera */
+            {items 
+            ? /* Opcion verdadera */
             <Alert variant={'info'} className="py-2">
             <small> Hay items! </small>
             </Alert>

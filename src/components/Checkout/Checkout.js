@@ -5,6 +5,7 @@ import { db } from '../../firebase/config'
 import { validateData } from '../../helpers/validateData'
 import { collection, Timestamp, addDoc, writeBatch, query, where, documentId, getDocs } from 'firebase/firestore/lite' //db
 import Swal from 'sweetalert2'
+import { BsLightningCharge } from 'react-icons/bs'
 
 export const Checkout = () => {
 
@@ -88,60 +89,76 @@ export const Checkout = () => {
 
     return (
 
-        <>
+        <section className='container'>
             {carrito.length === 0 //Si el carrito esta vacio...
                 ? <Navigate to="/cart"/>
                 : <div className='container my-4'>
-                <h2>Resumen de compra</h2>
+                <h2 className='bas-font gray75 mb-0'>Resumen de compra</h2>
                 <hr/>
-    
+                
+                <p>
+                    Completa tus datos para finalizar la compra
+                </p>
                 <form onSubmit={handleSubmit}>
-                    <input
-                        onChange={handleInputChange}
-                        name="nombre"
-                        value={values.nombre}
-                        className="form-control my-2"
-                        type="text"
-                        placeholder="nombre"
-                    />
-                    {values.nombre.length < 4 && <small>Nombre inválido</small>}
+
+                    <div className='row'>
+                        <div className='col-12 col-md-6'>
+                            <input
+                            onChange={handleInputChange}
+                            name="nombre"
+                            value={values.nombre}
+                            className="form-control mt-2 mb-0"
+                            type="text"
+                            placeholder="Nombre"
+                            />
+                            {values.nombre.length < 3 && <small className='gray75'>Debe tener almenos 3 caractéres</small>}
+                        </div>
+
+                        <div className='col-12 col-md-6'>
+                            <input
+                            onChange={handleInputChange}
+                            name="apellido"
+                            value={values.apellido}
+                            className="form-control mt-2"
+                            type="text"
+                            placeholder="Apellido" />
+                            {values.apellido.length < 4 && <small className='gray75'>Debe tener almenos 4 caractéres</small>}
+                        </div>
+                    </div>
+
+                    <div className='row'>
+                        <div className='col-12 col-md-6'>
+                            <input
+                            onChange={handleInputChange}
+                            name="email"
+                            value={values.email}
+                            className="form-control mt-3"
+                            type="email"
+                            placeholder="Email"
+                            />
+                            {values.email.length < 4 && <small className='gray75'>Ejem: name@domain.com</small>}
+                        </div>
+                        <div className='col-12 col-md-6'>
+                        <input
+                            onChange={handleInputChange}
+                            name="emailConfirm"
+                            value={values.emailConfirm}
+                            className="form-control mt-3"
+                            type="email"
+                            placeholder="Repita email"
+                            />
+                            {values.emailConfirm !== values.email && <small className='gray75'>Email no coincide</small>}
+                        </div>
+                    </div>
                     
-                    <input
-                        onChange={handleInputChange}
-                        name="apellido"
-                        value={values.apellido}
-                        className="form-control my-2"
-                        type="text"
-                        placeholder="apellido" />
-                    {values.apellido.length < 4 && <small>Apellido inválido</small>}
-    
-                    <input
-                        onChange={handleInputChange}
-                        name="email"
-                        value={values.email}
-                        className="form-control my-2"
-                        type="email"
-                        placeholder="email"
-                    />
-                    {values.email.length < 4 && <small>Email inválido</small>}
-    
-                    <input
-                        onChange={handleInputChange}
-                        name="emailConfirm"
-                        value={values.emailConfirm}
-                        className="form-control my-2"
-                        type="email"
-                        placeholder="Repita email"
-                    />
-                    {values.emailConfirm !== values.email && <small>Email no coincide</small>}
-    
-                    <button type="submit" className="btn btn-primary">Enviar</button>
+                    <div className='d-flex justify-content-end'>
+                        <button type="submit" className="btn btn-success bas-font fs-5 mt-3 ps-2"> <BsLightningCharge/> Finalizar Compra</button>
+                    </div>
                 </form>
-    
             </div>
             }
         
-        </>
+        </section>
         
     )
 }

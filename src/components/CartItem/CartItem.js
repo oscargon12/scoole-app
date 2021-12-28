@@ -8,17 +8,18 @@ export const CartItem = ({name, price, cantidad, id, img}) => {
     const {removerDelCarrito} = useContext(CartContext)
 
     return (
-        <div className="row mb-5">
-            <div className="col-3">
+        <div className="row border-bottom">
+            <div className="col-md-3">
              <Image src={img} height="150" rounded />
             </div>
-            <div className="col-6">
-                <h4 className="text-info">{name}</h4>
-                <h5 className="mb-2">Precio: {price}</h5>
-                <h6 className="text-muted">Cantidad: {cantidad}</h6>
+            <div className="col-md-8 d-block d-md-flex justify-content-between my-auto">
+                <h4 className="color-primary bas-font">{name}</h4>
+                <h5 className="mb-2 bas-font">USD {price}</h5>
+                <h5 className="text-muted bas-font"> {cantidad}</h5>
                 <button 
-                    className="btn btn-danger"
+                    className="btn btn-danger mb-3 mb-md-0"
                     onClick={() => { removerDelCarrito(id) }}
+                    data-bs-toggle="tooltip" data-bs-placement="top" title="Eliminar del carrito"
                 >
                     <BsFillTrashFill/>
                 </button>

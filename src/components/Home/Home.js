@@ -1,7 +1,9 @@
 import React from 'react'
 import { Carousel, Container } from 'react-bootstrap'
-import { Footer } from '../Footer/Footer'
 import { Link } from 'react-router-dom'
+import { Footer } from '../Footer/Footer'
+import { ItemListContainer } from '../ListContainer/ItemListContainer'
+import { FiChevronRight } from 'react-icons/fi'
 
 export const Home = () => {
     return (
@@ -16,7 +18,7 @@ export const Home = () => {
               <Carousel.Caption>
                 <h2 className='bas-font'>Longboards electricas</h2>
                 <div className='carousel-label'>
-                  <p>Nuevas opciones</p>
+                  <p>Nuevas opciones de transporte</p>
                 </div>
               </Carousel.Caption>
             </Carousel.Item>
@@ -81,11 +83,15 @@ export const Home = () => {
             </div>
           </Container>
 
+          <ItemListContainer/>
+
           <section className='container-fluid bg-light mt-5'>
             <div className="row featurette">
-              <div className="col-md-7 order-md-2 my-auto">
-                <h2 className="featurette-heading bas-font">Oh yeah, it’s that good. <span className="text-muted">See for yourself.</span></h2>
-                <p className="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+              <div className="col-md-7 order-md-2 my-auto ps-5">
+                <h2 className="featurette-heading bas-font">Que no se te haga <span className="text-muted">tarde!</span></h2>
+                <p className="lead fs-6">Aprovecha nuestras promociones navideñas</p>
+                <Link to={`/productos`} className="btn btn-danger bas-font pt-1 pb-0 ps-3"> Ver productos <FiChevronRight/> </Link>
+
               </div>
               <div className="col-md-5 order-md-1 px-0">
               <img

@@ -4,6 +4,11 @@ import ItemCount from '../ItemCount/ItemCount'
 import { useNavigate } from 'react-router'
 import { Link } from 'react-router-dom'
 import { CartContext } from '../../context/CartContext'
+import { Footer } from '../Footer/Footer'
+import { GoChevronLeft } from 'react-icons/go'
+import { HiHome } from 'react-icons/hi'
+import { BsFillCartCheckFill } from 'react-icons/bs'
+
  
 export const ItemDetail = (props) => {
 
@@ -42,19 +47,19 @@ export const ItemDetail = (props) => {
         <>
             <Row>
                 <Col className="mt-4">
-                    <Button className="btn btn-primary me-2" onClick={handleBack}>Volver</Button>
-                    <Button className="btn btn-info text-white" onClick={handleToIndex}>Ir al inicio</Button>
+                    <Button className="btn btn-danger me-2 ps-1" onClick={handleBack}> <GoChevronLeft className='mb-1'/> Volver</Button>
+                    <Button className="btn" variant="outline-danger" onClick={handleToIndex}> <HiHome className='mb-1'/> Ir al inicio</Button>
                 </Col>
             </Row>
-            <Card className="mt-3">
-                <Card.Header as="h5" className="text-muted">{name}</Card.Header>
+            <Card className="mt-3 border-0">
                 <Card.Body>
                     <Row>
                     <Col xs={6}>
-                        <Image src={img} height="300" rounded />
+                        <Image src={img} height="500" rounded />
                     </Col>
-                    <Col>
-                        <Card.Title className="text-info">Precio: {price}</Card.Title>
+                    <Col className='my-auto ps-5'>
+                        <h3 className='bas-font gray75 mb-0'> {name} </h3>
+                        <h2 className="color-primary bas-font mb-0">Precio: USD {price}</h2>
                         <div className="d-flex mb-0">
                             <Card.Text className="me-2 mb-0">
                                 Disponibles: {stock}
@@ -74,7 +79,7 @@ export const ItemDetail = (props) => {
                                     setCantidad={setCantidad}  /* 🔹Consumiendo el max desde itemCount. Los valores de cantidad también */
                                     onAdd={handleAddToCart} /* 🟢 Se envía a ItemCount */
                                     />
-                                : <Link to="/cart" variant="primary" className="btn btn-success">Terminar compra</Link>
+                                : <Link to="/cart" variant="primary" className="btn btn-success bas-font fs-5">Ir al carrito <BsFillCartCheckFill className='fs-6 ms-2'/></Link>
                             }
                                 
                         </Col> 
@@ -82,9 +87,10 @@ export const ItemDetail = (props) => {
                     </Col>
                     </Row>
                 </Card.Body>
-                <Card.Footer>
-                </Card.Footer>
+
             </Card>
+
+            <Footer/>
         </>
     )
 }

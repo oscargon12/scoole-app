@@ -12,10 +12,21 @@
 .nav-link{
     font-family: 'Bebas Neue', cursive;
     font-size: 17px;
+    color: $primary;
+}
+
+.dropnav-link{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 17px;
+    text-decoration: none;
 
     &:hover{
-        color: $primary;
+        color: $gray42
     }
+}
+
+.navbar-dark .navbar-nav .nav-link{
+    color: white;
 }
 
 .nav-brand{
@@ -57,6 +68,11 @@
 }
 
 /* Footer */
+.footer-pos{
+    position: absolute;
+    bottom: 0;
+}
+
 .b-example-divider {
     height: 3rem;
     background-color: rgba(0, 0, 0, .1);

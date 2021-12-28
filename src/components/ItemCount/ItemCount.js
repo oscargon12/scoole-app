@@ -1,5 +1,9 @@
 import React from 'react' //Siempre importar el hook de useState
 import { Button } from 'react-bootstrap'
+import { BsFillCartCheckFill } from 'react-icons/bs'
+import { FaMinus } from 'react-icons/fa'
+import { FaPlus } from 'react-icons/fa'
+import Swal from 'sweetalert2'
 
 function ItemCount({ max, setCantidad, cantidad, onAdd }) { //🔸 Este max={stock} es una prop de itemDetail
                                             //🟢 onAdd viene del ItemDetail
@@ -9,13 +13,20 @@ function ItemCount({ max, setCantidad, cantidad, onAdd }) { //🔸 Este max={sto
         max > cantidad
             ? setCantidad(cantidad + 1) //A cada onClick suma uno
             //🔸setCounter 🔹counter
-            : alert('No hay más unidades disponibles')
+            : Swal.fire({
+                icon: 'info',
+                title: 'No hay más unidades disponibles',
+                })
     }
     
     const handleRemoveItem = () => {
         cantidad > 1
            ? setCantidad(cantidad - 1)
-           : alert('No se puede disminuir más')
+           : Swal.fire({
+            icon: 'error',
+            title: 'No se puede disminuir más',
+            width: '20rem'
+            })
     }
 
     //Función de agregar al carrito, se pasa a ItemDetail
@@ -35,20 +46,20 @@ function ItemCount({ max, setCantidad, cantidad, onAdd }) { //🔸 Este max={sto
             <div className="d-flex justify-content-between">
                 <Button
                  onClick={handleRemoveItem}
-                 className={ `btn-block ${cantidad === 0 ? 'btn-secondary' : 'btn-info'}` } //👈🏻 Optionanl styling, acompaña al control handleAddItem del ItemCount
+                 className={ `btn-block ${cantidad === 0 ? 'btn-secondary' : 'btn-dark'}` } //👈🏻 Optionanl styling, acompaña al control handleAddItem del ItemCount
                  disabled={cantidad === 0}
                  >
-                     -
+                     <FaMinus/>
                 </Button> {/* Handler para sumar */}
-                <h3>{cantidad}</h3>       
-                <Button  {...handleAddConfig}>  {/* 🔹Recibiendo el objeto handleAddConfig */}
-                     +
+                <h2 className='bas-font mb-0 mt-1'>{cantidad}</h2>       
+                <Button  {...handleAddConfig} className='btn-danger'>  {/* 🔹Recibiendo el objeto handleAddConfig */}
+                     <FaPlus/>
                  </Button>
             </div>
 
-            <div>
-                <Button variant="primary" className="w-100 mt-3 text-white" onClick={onAdd}>
-                    Agregar al carrito
+            <div className='mt-4'>
+                <Button variant="primary" className="w-100 btn btn-danger bas-font pt-1 pb-0 ps-3 fs-5" disabled={cantidad === 0} onClick={onAdd}>
+                    Agregar al carrito <BsFillCartCheckFill className='fs-6 ms-1'/>
                 </Button>
             </div>
         </div>
@@ -57,4 +68,6 @@ function ItemCount({ max, setCantidad, cantidad, onAdd }) { //🔸 Este max={sto
 }
 
 export default ItemCount
+
+
 

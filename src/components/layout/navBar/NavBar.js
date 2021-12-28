@@ -1,7 +1,7 @@
 import { Navbar, Container, Nav } from 'react-bootstrap'
 import { CartWidget } from '../cartWidget/CartWidget'
 import { Link } from 'react-router-dom'
-import { BsBicycle } from 'react-icons/bs'
+import { BsLightningCharge } from 'react-icons/bs'
 import '../../scss/main.scss'
 
 const NavBar = ( props ) => {
@@ -12,7 +12,7 @@ const NavBar = ( props ) => {
     
     <Navbar bg="dark" variant="dark">
       <Container className="d-block d-sm-flex">
-        <Navbar.Brand href="#home" className="d-flex justify-content-center"><Link className='nav-brand bas-font' to="/"><BsBicycle/> {brand}</Link></Navbar.Brand>
+        <Navbar.Brand href="#home" className="d-flex justify-content-center"><Link className='nav-brand bas-font' to="/"><BsLightningCharge/> {brand}</Link></Navbar.Brand>
         <Nav className="ms-auto d-flex justify-content-center">
           <Nav.Link> <Link className='nav-link text-white py-0' to="productos">{link0}</Link></Nav.Link>
           <Nav.Link> <Link className='nav-link text-white py-0' to="productos/bike">{link1}</Link></Nav.Link>
