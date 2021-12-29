@@ -1,70 +1,124 @@
-# Getting Started with Create React App
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+    <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="Logo" width="80" height="80">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h1 align="center">Scoole App</h1>
 
-## Available Scripts
+  <p align="center">
+    Tienda ecommerce creada en React
+    <br />
+  </p>
+  <h6>Comisión 16985 de React JS en Coderhouse</h6>
+</div>
 
-In the project directory, you can run:
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Contenido</summary>
+  <ol>
+    <li>Acerca del proyecto</li>
+    <li>Comandos disponibles</li>
+    <li>Uso de librerías</li>
+    <li>Arquitectura del proyecto</li>
+    <li>Estilos</li>
+    <li>Consideraciones finales</li>
+  </ol>
+</details>
 
+________________________
+
+## Acerca Del Proyecto
+Este proyecto ha sido creado con el framework React JS [Create React App](https://github.com/facebook/create-react-app).
+
+La aplicación **Scoole** ha sido creada como ejercicio de práctica para el curso de React JS de la Comisión 16985.\
+**Scoole** dentro del ejercicio, funciona como ecommerce, para la compra de vehículos de transporte alternativo.\
+Las distintas funcionalidades han sido creadas paso a paso conforme avanzó el curso y como entrega final -Además de los features desarrollados- se propone una mejora en la interfaz y en la usabilidad.
+
+### Funcionalidades
+- Navbar
+- Catálogo
+- Detalle de producto
+- CartContext
+- CartWidget
+- Formulario de compra
+
+________________________
+
+## Comandos disponibles
+
+Podrá obtener una versión del repositorio ejecutando en la terminal:
+
+```git clone https://github.com/oscargon12/scoole-app.git```
+
+### Luego...
+
+### `npm install`
+Permite la instalación de dependencias necesarias para la ejecución del proyecto
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Permite correr la aplicación en modo de desarrollo
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Abre [http://localhost:3000](http://localhost:3000) en una pestaña del navegador.
+
+La página se recargará con cada nuevo cambio del editor de código. \
+
+Podrá ver el log de errores en la terminal.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Corre la ejecución de pruebas en el modo de vigilancia interactiva. \
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Construye la aplicación para producción en la carpeta `build`.\
+Agrupa correctamente React en modo de producción y optimiza la compilación para obtener el mejor rendimiento.\
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+La compilación está minificada y los nombres de los archivos incluyen los hashes.\
+La aplicación estará lista para ser desplegada.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+________________________
 
-### `npm run eject`
+## Uso de librerías
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Para una mejor experiencia y feedback en la aplicación se han implementado las siguientes librerías externas:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `react-bootstrap`
+Permite el uso del framework de UI Bootstrap dentro de la aplicación de React, esto agiliza el proceso de estilado y definición del layout y responsive
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### `firebase`
+Es la base de datos de la aplicación, permite acceder al API de productos y ordenes de compra mediante los métodos establecidos.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### `react-icons`
+Funciona como una biblioteca de íconos que son usados en distintos puntos de la interfaz
 
-## Learn More
+### `react-router-dom`
+Gestiona las rutas de la aplicación, entre otras ventajas, permite que la aplicación funciona como una SPA, sin generar nuevas recargas al acceder a una nueva sección
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `sweetalert2`
+Permite mostrar las alertas de una manera más amigable, que las generadas nativamente por el navegador, usando jerarquías de información y feedback mediante iconografía y color.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+________________________
+## Arquitectura del proyeccto
 
-### Code Splitting
+Los componentes se ubican, cada uno, en distintos directorios, dentro de la carpeta `components`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Así mismo, los `context`, `helpers`, `router` y el `config` de firebase se manejan de manera independiente y modular
+________________________
 
-### Analyzing the Bundle Size
+## Estilado
+Los estilos del proyecto se manejaron globalmente, con el preprocesador SCSS
+Lo que permitió generar una sola hoja de estilos para todo el proyecto.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Esta hoja de estilos a su vez es modular, donde el archivo principal `main.scss` consume a los archivos:
 
-### Making a Progressive Web App
+- `_variables.scss` donde se definen las variables de scss globales
+- `_utility.scss` donde se definen algunas utilidades similares a las de bootstrap, pero más específicas como colores personalizados y el tipo de fuente
+- `_componentes.scss` que permite dar estilo a componentes globales de la aplicación de manera más personalizada
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+________________________
 
-### Advanced Configuration
+## Consideraciones finales
+Si bien dentro de las rúbricas de evaluación y las sugerencias brindadas por el profesor, está el no dejar código comentado este se mantuvo, ya que siendo un proceso de aprendizaje, funcionó como punto de referencia.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### `Debugging`
+Bajo esta misma logica, se mantuvieron algunos debuggers que permitieron comprobar el correcto funcionamiento de la aplicación

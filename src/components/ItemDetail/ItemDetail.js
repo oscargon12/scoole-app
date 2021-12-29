@@ -45,8 +45,8 @@ export const ItemDetail = (props) => {
 
     return (
         <>
-            <Row>
-                <Col className="mt-4">
+            <Row className="mt-5">
+                <Col className="mt-5">
                     <Button className="btn btn-danger me-2 ps-1" onClick={handleBack}> <GoChevronLeft className='mb-1'/> Volver</Button>
                     <Button className="btn" variant="outline-danger" onClick={handleToIndex}> <HiHome className='mb-1'/> Ir al inicio</Button>
                 </Col>

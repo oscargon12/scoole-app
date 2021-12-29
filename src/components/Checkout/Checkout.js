@@ -92,7 +92,7 @@ export const Checkout = () => {
         <section className='container'>
             {carrito.length === 0 //Si el carrito esta vacio...
                 ? <Navigate to="/cart"/>
-                : <div className='container my-4'>
+                : <div className='container mb-4 mt-5 pt-5'>
                 <h2 className='bas-font gray75 mb-0'>Resumen de compra</h2>
                 <hr/>
                 

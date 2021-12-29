@@ -2,6 +2,7 @@ import React from 'react' //Se importan los hooks
 import { Container, Alert } from 'react-bootstrap'
 import Item from '../Item/Item'
 import '../scss/main.scss'
+import { Footer } from '../Footer/Footer'
 
 const ItemList = ({items}) => {
     
@@ -27,7 +28,7 @@ const ItemList = ({items}) => {
         <div>
             {items 
             ? /* Opcion verdadera */
-            <Alert variant={'info'} className="py-2">
+            <Alert variant={'info'} className="py-2 mt-4">
             <small> Hay items! </small>
             </Alert>
                 : /* Opcion falsa */
@@ -39,6 +40,10 @@ const ItemList = ({items}) => {
                     {items.map((prod) => <Item key={prod.id} {...prod}/>)} {/* 🔹Este es el stock de la tarjeta */}
                 </div>
             </Container>
+
+            <footer className='mt-5'>
+                <Footer className='mt-5'/>
+            </footer>
         </div>
     )
 }

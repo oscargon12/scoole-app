@@ -7,8 +7,8 @@ import { FiChevronRight } from 'react-icons/fi'
 
 export const Home = () => {
     return (
-        <div>
-          <Carousel className='carousel-height'>
+        <div className='pt-5 pt-sm-0'>
+          <Carousel className='carousel-height mt-5'>
             <Carousel.Item className='carousel-height'>
               <img
                 className="d-block w-100"

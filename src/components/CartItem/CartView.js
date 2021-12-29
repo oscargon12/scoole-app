@@ -16,8 +16,8 @@ export const CartView = () => {
         <div className="container my-5">
             {
                 carrito.length > 0 
-                ?   <>
-                        <h2 className="bas-font gray75 mb-4">Productos en el carrito</h2>
+                ?   <section className='pt-4'>
+                        <h2 className="bas-font gray75 mb-4 mt-3">Productos en el carrito</h2>
                         <div className="row mb-0">
                             <div className="col-md-3">
                                 </div>
@@ -44,10 +44,10 @@ export const CartView = () => {
                                 <Button className="btn bas-font fs-6" variant="outline-danger" onClick={vaciarCarrito}><BsFillTrashFill className='fs-6'/> Vaciar carrito</Button>
                             </div>
                         </section>
-                    </>
+                    </section>
 
-                :   <>
-                        <div className="text-muted d-flex justify-content-center">
+                :   <section className='pt-4'>
+                        <div className="text-muted d-flex justify-content-center mt-5">
                             <BsFillCartXFill size={50}/>
                         </div>
                         <h4 className="text-center text-muted mt-3 bas-font">No has agregado productos al carrito</h4>
@@ -55,7 +55,7 @@ export const CartView = () => {
                         <div className="d-flex justify-content-center">
                             <Link to="/" className="btn btn-danger bas-font ps-1"><GoChevronLeft className='mb-0'/> Volver</Link>
                         </div>
-                    </>
+                    </section>
             }
 
             
