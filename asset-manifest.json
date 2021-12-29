@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/scoole-app/static/css/main.af6356aa.chunk.css",
+    "main.js": "/scoole-app/static/js/main.80223931.chunk.js",
+    "main.js.map": "/scoole-app/static/js/main.80223931.chunk.js.map",
+    "runtime-main.js": "/scoole-app/static/js/runtime-main.ee1b342e.js",
+    "runtime-main.js.map": "/scoole-app/static/js/runtime-main.ee1b342e.js.map",
+    "static/css/2.0a9ec390.chunk.css": "/scoole-app/static/css/2.0a9ec390.chunk.css",
+    "static/js/2.5e049d7b.chunk.js": "/scoole-app/static/js/2.5e049d7b.chunk.js",
+    "static/js/2.5e049d7b.chunk.js.map": "/scoole-app/static/js/2.5e049d7b.chunk.js.map",
+    "static/js/3.b7161e96.chunk.js": "/scoole-app/static/js/3.b7161e96.chunk.js",
+    "static/js/3.b7161e96.chunk.js.map": "/scoole-app/static/js/3.b7161e96.chunk.js.map",
+    "index.html": "/scoole-app/index.html",
+    "static/css/2.0a9ec390.chunk.css.map": "/scoole-app/static/css/2.0a9ec390.chunk.css.map",
+    "static/css/main.af6356aa.chunk.css.map": "/scoole-app/static/css/main.af6356aa.chunk.css.map",
+    "static/js/2.5e049d7b.chunk.js.LICENSE.txt": "/scoole-app/static/js/2.5e049d7b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ee1b342e.js",
+    "static/css/2.0a9ec390.chunk.css",
+    "static/js/2.5e049d7b.chunk.js",
+    "static/css/main.af6356aa.chunk.css",
+    "static/js/main.80223931.chunk.js"
+  ]
+}
